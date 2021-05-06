@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.user-menu__image {
+  height: 60px;
+  border-radius: 100px;
+}
+
+.short-form {
+  display: flex;
+  column-gap: 5px;
+  width: max-content;
+}
+
+.edit-form {
+  margin-top: 10px;
+  display: none;
+  flex-direction: column;
+  row-gap: 10px;
+  width: max-content;
+  margin-bottom: 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.edit-form__controls {
+  display: flex;
+  justify-content: space-between;
+}

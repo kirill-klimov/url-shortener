@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="icon" href="/static/favicon.ico" />
+    <script defer src="/static/script.js"></script>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <h1>Сокращатель ссылок</h1>
+    {% if user_id %}
+    <div class="user-menu">
+      <img src="{{picture}}" class="user-menu__image" />
+      <a href="/logout">
+        <button>Выход</button>
+      </a>
+    </div>
+    <br />
+    <form action="" id="short-form" class="short-form">
+      <input type="text" name="link" placeholder="Длинная ссылка" />
+      <button type="submit" class="short-form__button">сократить</button>
+    </form>
+    <br />
+    <div>
+      <span>Короткая ссылка: </span>
+      <a target="_blank" id="link-span"></a>
+    </div>
+    <br />
+    <h2>Ваши ссылки</h2>
+    <ul id="user-links"></ul>
+    {% else %}
+    <p>Вы должны быть авторизованы</p>
+    <a href="/login">
+      <button>Sign in with Google</button>
+    </a>
+    {% endif %}
+    <footer>
+      <br />
+      <a target="_blank" href="https://github.com/kuhkowaba/url-shortener"
+        >GitHub</a
+      >
+    </footer>
+  </body>
+</html>
