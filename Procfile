@@ -1,1 +1,1 @@
-web gunicorn python-url-shortener:main
+web gunicorn app:main
