@@ -116,3 +116,6 @@ def logout():
     for key in list(session.keys()):
         session.pop(key)
     return redirect('/')
+
+
+app.run('localhost', os.getenv('PORT'))
