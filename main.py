@@ -118,4 +118,5 @@ def logout():
     return redirect('/')
 
 
-app.run('localhost', os.getenv('PORT'))
+if __name__ == "__main__":
+    app.run(port=os.getenv('PORT'), debug=False)
