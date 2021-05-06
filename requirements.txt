@@ -2,3 +2,4 @@ Flask
 requests
 Sqlalchemy
 Authlib
+gunicorn
