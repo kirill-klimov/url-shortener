@@ -1,1 +1,1 @@
-web gunicorn wsgi:main
+web gunicorn python-url-shortener:main
