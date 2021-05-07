@@ -50,20 +50,23 @@ def home(short_id):
     user_id = dict(session).get("user_id", None)
     update_link_counter(short_id)
     link = get_link(short_id)
-    if link.visibility == 'public':
-        return redirect(link.url, code=302)
-    elif link.visibility == 'auth':
-        if user_id:
+    try:
+        if link.visibility == 'public':
             return redirect(link.url, code=302)
-        else:
-            return redirect('/login')
-    elif link.visibility == 'private':
-        if user_id == link.creator_id:
-            return redirect(link.url, code=302)
-        elif not user_id:
-            return redirect('/login')
-        else:
-            return 'Unauthorized', 401
+        elif link.visibility == 'auth':
+            if user_id:
+                return redirect(link.url, code=302)
+            else:
+                return redirect('/login')
+        elif link.visibility == 'private':
+            if user_id == link.creator_id:
+                return redirect(link.url, code=302)
+            elif not user_id:
+                return redirect('/login')
+            else:
+                return 'Unauthorized', 401
+    except Exception:
+        return f"Error redirecting\n<a href=\"{link.url}\">{link.url}</a>", 500
 
 @app.route('/<short_id>', methods=['DELETE'])
 def delete(short_id):
