@@ -66,7 +66,7 @@ def home(short_id):
             else:
                 return 'Unauthorized', 401
     except Exception:
-        return f"Error redirecting\n<a href=\"{link.url}\">{link.url}</a>", 500
+        return f"Error redirecting to {link.url}", 500
 
 @app.route('/<short_id>', methods=['DELETE'])
 def delete(short_id):
