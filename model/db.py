@@ -5,7 +5,7 @@ from model.models import Base
 from model.models import User, Link
 
 engine = create_engine('sqlite:///db.db', echo=True)
-# Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine, checkfirst=True)
 Session = sessionmaker(bind=engine)
 
 def get_or_create_user(id):
