@@ -116,7 +116,3 @@ def logout():
     for key in list(session.keys()):
         session.pop(key)
     return redirect('/')
-
-
-# if __name__ == "__main__":
-#     app.run(port=os.getenv('PORT'), debug=False)
